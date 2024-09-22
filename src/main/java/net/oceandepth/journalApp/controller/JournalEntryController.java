@@ -28,4 +28,9 @@ public class JournalEntryController {
         return true;
     }
 
+    @GetMapping("id/{entryId}")
+    public JournalEntry getJournalEntryById(@PathVariable ObjectId entryId) {
+        return journalEntryService.findById(entryId).orElse(null);
+    }
+
 }
