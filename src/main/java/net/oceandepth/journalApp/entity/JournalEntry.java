@@ -1,5 +1,8 @@
 package net.oceandepth.journalApp.entity;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "journal_entries")
 public class JournalEntry {
     private Long id;
     private String title;
