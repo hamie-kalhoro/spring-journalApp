@@ -33,4 +33,10 @@ public class JournalEntryController {
         return journalEntryService.findById(entryId).orElse(null);
     }
 
+    @DeleteMapping("id/{journalId}")
+    public boolean removeStudentById(@PathVariable ObjectId journalId) {
+        journalEntryService.deleteById(journalId);
+        return true;
+    }
+
 }
