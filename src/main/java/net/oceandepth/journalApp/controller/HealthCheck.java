@@ -1,4 +1,4 @@
-package net.oceandepth.journalApp.journalEntry;
+package net.oceandepth.journalApp.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

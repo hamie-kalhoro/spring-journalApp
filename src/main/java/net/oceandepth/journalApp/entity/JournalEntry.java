@@ -1,4 +1,4 @@
-package net.oceandepth.journalApp.journalEntry;
+package net.oceandepth.journalApp.entity;
 
 public class JournalEntry {
     private Long id;
