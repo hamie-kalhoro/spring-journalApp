@@ -14,8 +14,11 @@ import java.util.Optional;
 @Slf4j
 public class JournalEntryService {
 
+    JournalEntryRepository journalEntryRepository;
     @Autowired
-    private JournalEntryRepository journalEntryRepository;
+    public JournalEntryService(JournalEntryRepository journalEntryRepository) {
+        this.journalEntryRepository = journalEntryRepository;
+    }
 
     public void saveEntry(JournalEntry journalEntry) {
 
