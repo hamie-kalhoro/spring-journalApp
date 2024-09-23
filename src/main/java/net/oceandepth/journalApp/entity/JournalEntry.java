@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @Data
 public class JournalEntry {
     @Id
+    // this annotation make the id field primary and ObjectId data-type is used by mongodb for creating ids'.
     private ObjectId id;
     private String title;
     private String content;
