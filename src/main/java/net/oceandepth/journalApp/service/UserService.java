@@ -20,12 +20,7 @@ public class UserService {
     }
 
     public void saveEntry(User user) {
-
-        try {
-            userRepository.save(user);
-        } catch(Exception e) {
-            log.error("Exception", e);
-        }
+        userRepository.save(user);
     }
 
     public List<User> getAll() {
@@ -38,6 +33,10 @@ public class UserService {
 
     public void deleteById(ObjectId id) {
         userRepository.deleteById(id);
+    }
+
+    public User findByUserName(String userName) {
+        return userRepository.findByUserName(userName);
     }
 
 }

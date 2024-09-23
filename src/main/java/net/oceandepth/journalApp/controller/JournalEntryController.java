@@ -7,12 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping
+@RequestMapping("/journal")
 public class JournalEntryController {
 
     JournalEntryService journalEntryService;
@@ -51,8 +50,8 @@ public class JournalEntryController {
 
     @PutMapping("id/{myId}")
     public ResponseEntity<JournalEntry> updateJournalEntry(
-                                                            @PathVariable ObjectId myId,
-                                                            @RequestBody JournalEntry newEntry) {
+                                @PathVariable ObjectId myId,
+                                @RequestBody JournalEntry newEntry) {
         JournalEntry old = journalEntryService.findById(myId).orElse(null);
         if(old != null) {
             old.setTitle(newEntry.getTitle() != null && !newEntry.getTitle().equals("") ? newEntry.getTitle() : old.getTitle());
