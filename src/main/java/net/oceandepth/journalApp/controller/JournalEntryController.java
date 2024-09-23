@@ -15,8 +15,11 @@ import java.util.Optional;
 @RequestMapping
 public class JournalEntryController {
 
+    JournalEntryService journalEntryService;
     @Autowired
-    private JournalEntryService journalEntryService;
+    public JournalEntryController(JournalEntryService journalEntryService) {
+        this.journalEntryService = journalEntryService;
+    }
 
     @GetMapping
     public List<JournalEntry> getAll() {
@@ -42,13 +45,15 @@ public class JournalEntryController {
     }
 
     @DeleteMapping("id/{journalId}")
-    public ResponseEntity<?> removeStudentById(@PathVariable ObjectId journalId) {
+    public ResponseEntity<JournalEntry> removeStudentById(@PathVariable ObjectId journalId) {
         journalEntryService.deleteById(journalId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @PutMapping("id/{myId}")
-    public ResponseEntity<JournalEntry> updateJournalEntry(@PathVariable ObjectId myId, @RequestBody JournalEntry newEntry) {
+    public ResponseEntity<JournalEntry> updateJournalEntry(
+                                                            @PathVariable ObjectId myId,
+                                                            @RequestBody JournalEntry newEntry) {
         JournalEntry old = journalEntryService.findById(myId).orElse(null);
         if(old != null) {
             old.setTitle(newEntry.getTitle() != null && !newEntry.getTitle().equals("") ? newEntry.getTitle() : old.getTitle());
