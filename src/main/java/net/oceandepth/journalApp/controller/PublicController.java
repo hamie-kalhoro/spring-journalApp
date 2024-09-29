@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("health")
+@RequestMapping("/public")
 public class PublicController {
 
     UserService userService;
@@ -22,7 +22,7 @@ public class PublicController {
         return "ok!";
     }
 
-    @PostMapping
+    @PostMapping("/create-user")
     public ResponseEntity<User> createEntry(@RequestBody User userEntry) {
 
         try {
