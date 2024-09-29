@@ -28,7 +28,6 @@ public class JournalEntryService {
         this.userService = userService;
     }
 
-    @Transactional
     public void saveEntry(JournalEntry journalEntry, String userName) {
         try {
             User user = userService.findByUserName(userName);

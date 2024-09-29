@@ -13,7 +13,6 @@ import java.util.List;
 @Document(collection = "users")
 @Data
 public class User {
-
     @Id
     private ObjectId id;
     @Indexed(unique = true)
@@ -21,7 +20,7 @@ public class User {
     private String userName;
     @NonNull
     private String password;
-
     @DBRef
     private List<JournalEntry> journalEntries = new ArrayList<>();
+    private List<String> roles;
 }
