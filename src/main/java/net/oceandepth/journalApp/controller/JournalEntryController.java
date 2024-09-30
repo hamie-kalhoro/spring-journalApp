@@ -51,7 +51,8 @@ public class JournalEntryController {
     @GetMapping("id/{entryId}")
     public ResponseEntity<JournalEntry> getJournalEntryById(@PathVariable ObjectId entryId) {
         Optional<JournalEntry> journalEntry = journalEntryService.findById(entryId);
-        return journalEntry.map(entry -> new ResponseEntity<>(entry, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        return journalEntry.map(entry -> new ResponseEntity<>(entry, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @DeleteMapping("id/{userName}/{journalId}")

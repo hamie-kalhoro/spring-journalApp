@@ -27,19 +27,17 @@ public class UserController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
         User userInDb = userService.findByUserName(userName);
-        if(userInDb != null) {
-            userInDb.setUserName(user.getUserName());
-            userInDb.setPassword(user.getPassword());
-            userService.saveNewUser(userInDb);
-            return new ResponseEntity<>(userInDb, HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        userInDb.setUserName(user.getUserName());
+        userInDb.setPassword(user.getPassword());
+        userService.saveNewUser(userInDb);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @DeleteMapping
     public ResponseEntity<?> deleteUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        userRepository.deleteByUserName(authentication.getName());
+        String username = authentication.getName();
+        userRepository.deleteByUserName(username);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
