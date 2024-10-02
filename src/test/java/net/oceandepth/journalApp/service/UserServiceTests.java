@@ -1,6 +1,9 @@
 package net.oceandepth.journalApp.service;
 
 import net.oceandepth.journalApp.repository.UserRepository;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -14,11 +17,17 @@ class UserServiceTests {
     @Autowired
     private UserRepository userRepository;
 
+    @Disabled // I have used this to understand the ability of this annotation
+    @Test
+    void testSimpleAddition() {
+        Assertions.assertEquals(44, 40+4);
+    }
+
     @ParameterizedTest
     @ValueSource(strings = {
             "hamid",
             "sajid",
-            "mudasir"
+            "quasar"
     })
     void testFindByUserName(String name) {
         assertNotNull(userRepository.findByUserName(name));
