@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: Journal App
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: journaldb
+      auto-index-creation: true
+  main:
+    allow-circular-references: true
+
+server:
+  port: 9292
+  servlet:
+    context-path: /journal
+
+

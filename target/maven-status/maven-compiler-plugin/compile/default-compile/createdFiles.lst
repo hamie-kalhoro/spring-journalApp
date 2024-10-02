@@ -1,0 +1,13 @@
+net\oceandepth\journalApp\entity\JournalEntry.class
+net\oceandepth\journalApp\repository\JournalEntryRepository.class
+net\oceandepth\journalApp\service\UserService.class
+net\oceandepth\journalApp\service\UserDetailsServiceImp.class
+net\oceandepth\journalApp\JournalApplication.class
+net\oceandepth\journalApp\controller\AdminController.class
+net\oceandepth\journalApp\repository\UserRepository.class
+net\oceandepth\journalApp\service\JournalEntryService.class
+net\oceandepth\journalApp\controller\PublicController.class
+net\oceandepth\journalApp\config\SpringSecurity.class
+net\oceandepth\journalApp\controller\UserController.class
+net\oceandepth\journalApp\entity\User.class
+net\oceandepth\journalApp\controller\JournalEntryController.class
