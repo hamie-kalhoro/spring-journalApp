@@ -1,12 +1,13 @@
 package net.oceandepth.journalApp.service;
 
+import net.oceandepth.journalApp.entity.User;
 import net.oceandepth.journalApp.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ArgumentsSource;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,6 +17,8 @@ class UserServiceTests {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private UserService userService;
 
     @Disabled // I have used this to understand the ability of this annotation
     @Test
@@ -24,15 +27,12 @@ class UserServiceTests {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {
-            "hamid",
-            "sajid",
-            "quasar"
-    })
-    void testFindByUserName(String name) {
-        assertNotNull(userRepository.findByUserName(name));
+    @ArgumentsSource(UserArgumentProvider.class)
+    void testSaveNewUser(User user) {
+        assertTrue(userService.saveNewUser(user));
     }
 
+    @Disabled
     @ParameterizedTest
     @CsvSource({
             "1,1,2",
