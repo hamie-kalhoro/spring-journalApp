@@ -11,8 +11,9 @@ spring:
     allow-circular-references: true
 
 server:
-  port: 9292
+  port: 9090
   servlet:
     context-path: /journal
+
 
 
