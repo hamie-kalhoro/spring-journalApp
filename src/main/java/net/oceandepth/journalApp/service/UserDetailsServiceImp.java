@@ -1,6 +1,7 @@
 package net.oceandepth.journalApp.service;
 
 import net.oceandepth.journalApp.entity.User;
+import net.oceandepth.journalApp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -10,15 +11,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserDetailsServiceImp implements UserDetailsService {
 
-    UserService userService;
+    UserRepository userRepository;
     @Autowired
-    public UserDetailsServiceImp(UserService userService) {
-        this.userService = userService;
+    public UserDetailsServiceImp(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userService.findByUserName(username);
+        User user = userRepository.findByUserName(username);
         if(user != null) {
             return org.springframework.security.core.userdetails.User.builder()
                     .username(user.getUserName())

@@ -2,32 +2,37 @@ package net.oceandepth.journalApp.service;
 
 import net.oceandepth.journalApp.entity.User;
 import net.oceandepth.journalApp.repository.UserRepository;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
 class UserDetailsServiceImpTests {
 
-    @Autowired
-    private UserDetailsServiceImp userDetailsServiceImp;
+    @InjectMocks
+    UserDetailsServiceImp userDetailsService;
 
-    @MockBean
-    private UserRepository userRepository;
+    @Mock
+    UserRepository userRepository;
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.initMocks(this);
+    }
 
     @Test
     void testLoadUserByUserName() {
         when(userRepository.findByUserName(ArgumentMatchers.anyString()))
-                .thenReturn(User.builder().userName("bilbo").password("falanadimkana")
+                .thenReturn(User.builder().userName("bilbo").password("hinfire")
                         .roles(new ArrayList<>()).build());
-        UserDetails user = userDetailsServiceImp.loadUserByUsername("bilbo");
-        assertNotNull(user);
+        UserDetails user = userDetailsService.loadUserByUsername("bilbo");
+        Assertions.assertNotNull(user);
     }
 
 }
