@@ -2,6 +2,7 @@ net\oceandepth\journalApp\entity\JournalEntry.class
 net\oceandepth\journalApp\repository\JournalEntryRepository.class
 net\oceandepth\journalApp\service\UserService.class
 net\oceandepth\journalApp\service\UserDetailsServiceImp.class
+net\oceandepth\journalApp\entity\User$UserBuilder.class
 net\oceandepth\journalApp\JournalApplication.class
 net\oceandepth\journalApp\controller\AdminController.class
 net\oceandepth\journalApp\repository\UserRepository.class
