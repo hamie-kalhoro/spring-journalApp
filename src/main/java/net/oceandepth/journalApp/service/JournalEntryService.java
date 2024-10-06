@@ -19,10 +19,8 @@ public class JournalEntryService {
     JournalEntryRepository journalEntryRepository;
     UserService userService;
     @Autowired
-    public JournalEntryService(
-                                JournalEntryRepository journalEntryRepository,
-                                UserService userService
-                              ) {
+    public JournalEntryService( JournalEntryRepository journalEntryRepository,
+                                UserService userService ) {
         this.journalEntryRepository = journalEntryRepository;
         this.userService = userService;
     }

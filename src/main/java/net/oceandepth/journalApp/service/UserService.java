@@ -24,6 +24,7 @@ public class UserService {
 
     private static final PasswordEncoder passwordEncode = new BCryptPasswordEncoder();
 
+
     public void saveAdmin(User user) {
         user.setPassword(passwordEncode.encode(user.getPassword()));
         user.setRoles(Arrays.asList("USER", "ADMIN"));
@@ -37,6 +38,11 @@ public class UserService {
             userRepository.save(user);
             return true;
         } catch (Exception e) {
+            log.info("HAHAHAHAHHAHAHAH");
+            log.warn("HAHAHAHAHHAHAHAH");
+            log.error("HAHAHAHAHHAHAHAH");
+            log.debug("HAHAHAHAHHAHAHAH");
+            log.trace("HAHAHAHAHHAHAHAH");
             return false;
         }
     }

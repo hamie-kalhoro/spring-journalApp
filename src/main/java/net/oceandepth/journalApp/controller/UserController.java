@@ -1,8 +1,10 @@
 package net.oceandepth.journalApp.controller;
 
+import net.oceandepth.journalApp.api.response.WeatherResponse;
 import net.oceandepth.journalApp.entity.User;
 import net.oceandepth.journalApp.repository.UserRepository;
 import net.oceandepth.journalApp.service.UserService;
+import net.oceandepth.journalApp.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +18,14 @@ public class UserController {
 
     UserService userService;
     UserRepository userRepository;
+    WeatherService weatherService;
     @Autowired
-    public UserController(UserService userService, UserRepository userRepository) {
+    public UserController(UserService userService,
+                          UserRepository userRepository,
+                          WeatherService weatherService) {
         this.userService = userService;
         this.userRepository = userRepository;
+        this.weatherService = weatherService;
     }
 
     @PutMapping
@@ -39,6 +45,17 @@ public class UserController {
         String username = authentication.getName();
         userRepository.deleteByUserName(username);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping
+    public ResponseEntity<?> greetings() {
+        WeatherResponse weatherResponse = weatherService.getWeather("Karachi");
+        String greetings = "";
+        if(weatherResponse != null) {
+            greetings = ", Weather feels like " + weatherResponse.getCurrent().getFeelslike();
+        }
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return new ResponseEntity<>("hi "+authentication.getName() + greetings, HttpStatus.OK);
     }
 
 }
