@@ -1,4 +1,6 @@
+D:\CS\course\journalApp\src\main\java\net\oceandepth\journalApp\api\response\WeatherResponse.java
 D:\CS\course\journalApp\src\main\java\net\oceandepth\journalApp\config\SpringSecurity.java
+D:\CS\course\journalApp\src\main\java\net\oceandepth\journalApp\config\SpringSecurityProd.java
 D:\CS\course\journalApp\src\main\java\net\oceandepth\journalApp\controller\AdminController.java
 D:\CS\course\journalApp\src\main\java\net\oceandepth\journalApp\controller\JournalEntryController.java
 D:\CS\course\journalApp\src\main\java\net\oceandepth\journalApp\controller\PublicController.java
@@ -11,3 +13,4 @@ D:\CS\course\journalApp\src\main\java\net\oceandepth\journalApp\repository\UserR
 D:\CS\course\journalApp\src\main\java\net\oceandepth\journalApp\service\JournalEntryService.java
 D:\CS\course\journalApp\src\main\java\net\oceandepth\journalApp\service\UserDetailsServiceImp.java
 D:\CS\course\journalApp\src\main\java\net\oceandepth\journalApp\service\UserService.java
+D:\CS\course\journalApp\src\main\java\net\oceandepth\journalApp\service\WeatherService.java
