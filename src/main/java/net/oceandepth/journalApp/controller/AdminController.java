@@ -1,5 +1,6 @@
 package net.oceandepth.journalApp.controller;
 
+import net.oceandepth.journalApp.cache.AppCache;
 import net.oceandepth.journalApp.entity.User;
 import net.oceandepth.journalApp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,11 @@ import java.util.List;
 public class AdminController {
 
     UserService userService;
+    AppCache appCache;
     @Autowired
-    public AdminController(UserService userService) {
+    public AdminController(UserService userService, AppCache appCache) {
         this.userService = userService;
+        this.appCache = appCache;
     }
 
     @GetMapping("/all-users")
@@ -30,6 +33,11 @@ public class AdminController {
     @PostMapping("/create-admin-user")
     public void createUser(@RequestBody User newUser) {
         userService.saveAdmin(newUser);
+    }
+
+    @GetMapping("/clear-app-cache")
+    public void clearAppCache() {
+        appCache.init();
     }
 
 }

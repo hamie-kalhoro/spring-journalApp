@@ -49,7 +49,7 @@ public class UserController {
 
     @GetMapping
     public ResponseEntity<?> greetings() {
-        WeatherResponse weatherResponse = weatherService.getWeather("Karachi");
+        WeatherResponse weatherResponse = weatherService.getWeather("Sukkur");
         String greetings = "";
         if(weatherResponse != null) {
             greetings = ", Weather feels like " + weatherResponse.getCurrent().getFeelslike();
