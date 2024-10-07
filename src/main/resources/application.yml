@@ -9,3 +9,8 @@ spring:
 #    net:
 #      oceandepth:
 #        journalApp: TRACE
+
+
+weather:
+  api:
+    key: 6d16fd7350892af4daf0104c2138c7f8
