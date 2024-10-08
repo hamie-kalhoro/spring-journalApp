@@ -1,8 +1,6 @@
 package net.oceandepth.journalApp.entity;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.NonNull;
+import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -14,12 +12,16 @@ import java.util.List;
 @Document(collection = "users")
 @Data
 @Builder
+@NoArgsConstructor(force = true)
+@AllArgsConstructor
 public class User {
     @Id
     private ObjectId id;
     @Indexed(unique = true)
     @NonNull
     private String userName;
+    private String email;
+    private boolean setimentAnalysis;
     @NonNull
     private String password;
     @DBRef
