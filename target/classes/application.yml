@@ -3,13 +3,23 @@ spring:
   profiles:
     active: dev
 
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: hamidkalhoro.in@gmail.com
+    password: vurn obwt ncdi pipe
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
 #logging:
 #  level:
 #    net:
 #      oceandepth:
 #        journalApp: TRACE
-
 
 weather:
   api:
