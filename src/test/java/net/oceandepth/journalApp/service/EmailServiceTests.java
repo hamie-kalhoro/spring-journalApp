@@ -12,9 +12,9 @@ public class EmailServiceTests {
 
     @Test
     public void testSendEmail() {
-        emailService.sendEmail("shahrayarsahito2@gmail.com",
-                           "Testing Java mail sender",
-                             "mama, pronounciation sikh...");
+        emailService.sendEmail("22cs008@students.muet.edu.pk",
+                "Testing Java mail sender",
+                "mr. karan, make your deeds good enough to be praised, bcz you are our respected cr...");
     }
 
 }
