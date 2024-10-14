@@ -1,1 +1,4 @@
 net\oceandepth\journalApp\JournalAppApplicationTests.class
+net\oceandepth\journalApp\Repository\UserRepositoryImplTests.class
+net\oceandepth\journalApp\service\SentimentAnalysisServiceTests.class
+net\oceandepth\journalApp\service\EmailServiceTests.class

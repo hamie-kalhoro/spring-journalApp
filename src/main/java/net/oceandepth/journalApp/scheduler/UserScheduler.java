@@ -6,7 +6,6 @@ import net.oceandepth.journalApp.service.EmailService;
 import net.oceandepth.journalApp.service.SentimentAnalysisService;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -39,7 +38,5 @@ public class UserScheduler {
             String sentiment = sentimentAnalysisService.getSentiment(entry);
             emailService.sendEmail(user.getEmail(), "Sentiment for last 7 days", sentiment);
         }
-
     }
-
 }

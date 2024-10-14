@@ -1,1 +1,4 @@
 D:\CS\course\journalApp\src\test\java\net\oceandepth\journalApp\JournalAppApplicationTests.java
+D:\CS\course\journalApp\src\test\java\net\oceandepth\journalApp\Repository\UserRepositoryImplTests.java
+D:\CS\course\journalApp\src\test\java\net\oceandepth\journalApp\service\EmailServiceTests.java
+D:\CS\course\journalApp\src\test\java\net\oceandepth\journalApp\service\SentimentAnalysisServiceTests.java
