@@ -2,11 +2,14 @@ spring:
   application:
     name: Journal App
   data:
+    redis:
+      uri: redis://default:kalhoro@redis-16315.c264.ap-south-1-1.ec2.redns.redis-cloud.com:16315
     mongodb:
-      host: localhost
-      port: 27017
       database: journaldb
       auto-index-creation: true
+      uri: mongodb+srv://hamid:kalhoro@cluster0.ev6lc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+#      authentication-database: admin
+#      authentication-mechanism: SCRAM-SHA-256
   main:
     allow-circular-references: true
 

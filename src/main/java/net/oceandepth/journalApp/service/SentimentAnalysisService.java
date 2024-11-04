@@ -6,7 +6,8 @@ import org.springframework.stereotype.Service;
 public class SentimentAnalysisService {
 
     public String getSentiment( String text ) {
-        return "";
+        return "hello -> " +
+                "    dear karan, did you insist mam to mark my attendance.";
     }
 
 }
